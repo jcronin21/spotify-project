@@ -2,7 +2,7 @@ import React from 'react';
 import { Carousel } from 'antd';
 
 
-const Caro = ({ tracks }) => {
+const Caro = ({ tracks,playMusic }) => {
   const onChange = (currentSlide) => {
     console.log(currentSlide);
   };
@@ -18,6 +18,7 @@ const Caro = ({ tracks }) => {
         <div style={{ textAlign: 'center' }}>
           <h3 style={{ marginBottom: '5px' }}>{track.name}</h3>
           <p>{track.artist.name}</p>
+          {track.preview_url && <Button onClick={() => playMusic(track.preview_url)}>Play</Button>}
         </div>
       </div>
     </div>
