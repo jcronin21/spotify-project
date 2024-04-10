@@ -1,8 +1,8 @@
 import React from 'react';
-import { Carousel } from 'antd';
+import { Carousel,Button } from 'antd';
 
 
-const Caro = ({ tracks,playMusic }) => {
+const Caro = ({ tracks,playMusic, stopMusic }) => {
   const onChange = (currentSlide) => {
     console.log(currentSlide);
   };
@@ -18,16 +18,26 @@ const Caro = ({ tracks,playMusic }) => {
         <div style={{ textAlign: 'center' }}>
           <h3 style={{ marginBottom: '5px' }}>{track.name}</h3>
           <p>{track.artist.name}</p>
-          {track.preview_url && <Button onClick={() => playMusic(track.preview_url)}>Play</Button>}
+
         </div>
       </div>
     </div>
   );
 
   return (
-    <Carousel afterChange={onChange}>
-      {tracks.map((track, index) => trackToJSX(track, index))}
-    </Carousel>
+    <div>
+      <div style={{ textAlign: 'center', marginBottom: '5px' }}>
+        {tracks.length > 0 && tracks[0].preview_url && (
+          <>
+  <Button onClick={() => playMusic(tracks[0].preview_url)}>Play</Button>
+  <Button onClick={stopMusic} style={{ marginLeft: '8px' }}>Stop</Button>
+         </>
+        )}
+      </div>
+      <Carousel afterChange={onChange}>
+        {tracks.map((track, index) => trackToJSX(track, index))}
+      </Carousel>
+    </div>
   );
 };
 

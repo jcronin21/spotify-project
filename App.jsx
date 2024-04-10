@@ -25,10 +25,19 @@ const App = () => {
       console.log("whoops something went wrong");
     }
   };
+  const stopMusic = () => {
+    const audio = document.querySelector(audio); 
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0; 
+    } else {
+      console.log('Audio element not found');
+    }
+  };
   return (
     <div>
       <CustomForm onSubmit={fetchData} />
-      <CustomCarousel tracks={tracks} playMusic={playMusic} />
+      <CustomCarousel tracks={tracks} playMusic={playMusic} stopMusic={stopMusic}/>
     </div>
   );
 };
