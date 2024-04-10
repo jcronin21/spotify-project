@@ -5,11 +5,10 @@
   "main": "index.js",
   "homepage": "https://jcronin21.github.io/spotify-project",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vite dev",
+    "start": "vite dev",
     "build": "vite build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",

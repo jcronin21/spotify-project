@@ -17,10 +17,18 @@ const App = () => {
       console.error('Error fetching data:', error);
     }
   }
+  const playMusic = (previewUrl) =>{
+    if(previewUrl){
+      const audio = new Audio(previewUrl);
+      audio.play();
+    }else{
+      console.log("whoops something went wrong");
+    }
+  };
   return (
     <div>
       <CustomForm onSubmit={fetchData} />
-      <CustomCarousel tracks={tracks} />
+      <CustomCarousel tracks={tracks} playMusic={playMusic} />
     </div>
   );
 };
